@@ -32,3 +32,10 @@ steps:
     majorVersion: '$(Major)'
     minorVersion: '$(Minor)'
     patchVersion: '$(Patch)'
+
+    
+- task: CopyFiles@2
+  inputs:
+    Contents: '**/*.nupkg'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    CleanTargetFolder: true
