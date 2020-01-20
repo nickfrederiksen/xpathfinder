@@ -23,7 +23,7 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: '$(Agent.WorkFolder)/src'
+    workingDir: '$(Build.SourcesDirectory)/src'
 
 - task: NuGetCommand@2
   inputs:
