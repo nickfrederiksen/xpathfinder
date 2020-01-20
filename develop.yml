@@ -2,7 +2,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-name: "1.0.0.$(Rev:.r)"
+name: "1.0.0$(Rev:.r)-beta"
 
 trigger:
 - develop
