@@ -1,0 +1,16 @@
+﻿{
+	"dashboards": [
+		{
+			"sections": [ "settings" ],
+			"alias": "xpathfinder",
+			"name": "XPathFinder",
+			"view": "/App_Plugins/XPathFinder/Views/dashboard.html"
+		}
+	],
+	"javascript": [
+		"/App_Plugins/XPathFinder/xpathfinder.js"
+	],
+	"css": [
+		"/App_Plugins/XPathFinder/xpathfinder.css"
+	]
+}

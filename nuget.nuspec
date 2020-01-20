@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>XPathFinder</id>
+    <version>1.0.0</version>
+    <title></title>
+    <authors>Nick Frederiksen</authors>
+    <owners>Nick Frederiksen</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/nickfrederiksen/xpathfinder</projectUrl>
+    <description>Tool for generating XPaths for Umbraco Content.</description>
+    <dependencies>
+      <dependency id="UmbracoCms" version="8.5.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="src\lang\en-us.xml" target="content\App_Plugins\XPathFinder\lang\en-us.xml" />
+    <file src="src\Views\dashboard.html" target="content\App_Plugins\XPathFinder\Views\dashboard.html" />
+    <file src="src\package.manifest" target="content\App_Plugins\XPathFinder\package.manifest" />
+    <file src="src\xpathfinder.css" target="content\App_Plugins\XPathFinder\xpathfinder.css" />
+    <file src="src\xpathfinder.js" target="content\App_Plugins\XPathFinder\xpathfinder.js" />
+  </files>
+</package>

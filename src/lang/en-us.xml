@@ -1,0 +1,31 @@
+﻿<language>
+	<area alias="dashboardTabs">
+		<key alias="xpathfinder">XPathFinder</key>
+	</area>
+	<area alias="xpathfinder">
+		<key alias="findxpath_title">Find XPath</key>
+		<key alias="findxpath_description">Generate XPath from a content node.</key>
+
+		<key alias="findxpath_content">Content:</key>
+		<key alias="findxpath_content_description">Select the content to generate the XPath from.</key>
+
+		<key alias="findxpath_rootxpath">Relative to root:</key>
+		<key alias="findxpath_rootxpath_description">XPath for the selected content, relative to the root, (-1). Useful for the Multi Node Tree Picker.</key>
+
+		<key alias="findxpath_sitexpath">Relative to site:</key>
+		<key alias="findxpath_sitexpath_description">XPath for the selected content, relative to the content node at level 1. Useful for the Multi Node Tree Picker.</key>
+
+		<key alias="findxpath_specificxpath">Relative to a specific site:</key>
+		<key alias="findxpath_specificxpath_description">XPath for the selected content, relative to the content node at level 1 with a specific id. Useful for UmbracoHelper.ContentAtXPath(xpath) and UmbracoHelper.ContentSingleAtXPath(xpath).</key>
+		
+		<key alias="content_title">Find content</key>
+		<key alias="content_description">Find content by XPath.</key>
+		
+		<key alias="content_xpath">XPath:</key>
+		<key alias="content_xpath_description">Enter XPath to find content by.</key>
+		<key alias="content_xpath_placeholder">Enter XPath</key>
+		
+		<key alias="content_content">Content:</key>
+		<key alias="content_content_description">The content found by the entered XPath.</key>
+	</area>
+</language>

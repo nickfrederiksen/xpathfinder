@@ -1,0 +1,181 @@
+﻿<div id="xpathfinder">
+	<div>
+		<umb-box>
+			<umb-box-header title-key="xpathfinder_findxpath_title" description-key="xpathfinder_findxpath_description">
+			</umb-box-header>
+			<umb-box-content>
+				<div class="form-horizontal" ng-controller="xpathfinder.findxpathcontroller as ctrl">
+					<div class="umb-property">
+						<ng-form name="propertyForm">
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label"><localize key="xpathfinder_findxpath_content"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_findxpath_content_description"></localize></small>
+
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div ng-controller="Umbraco.Editors.TreePickerController as vm">
+												<div ng-hide="vm.miniListView">
+													<umb-tree section="content"
+															  treealias="content"
+															  hideheader="true"
+															  hideoptions="true"
+															  isdialog="true"
+															  enablelistviewsearch="false"
+															  enablelistviewexpand="true"
+															  enablecheckboxes="true"
+															  customtreeparams="{{vm.customTreeParams}}"
+															  on-init="vm.initDialogTree()"
+															  api="vm.dialogTreeApi">
+
+													</umb-tree>
+												</div>
+												<umb-mini-list-view ng-if="vm.miniListView"
+																	node="vm.miniListView"
+																	entity-type="{{vm.entityType}}"
+																	start-node-id="vm.startNodeId"
+																	on-select="ctrl.select(node)"
+																	on-close="vm.closeMiniListView()"
+																	entity-type-filter="vm.filter">
+												</umb-mini-list-view>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label" for="rootXPath"><localize key="xpathfinder_findxpath_rootxpath"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_findxpath_rootxpath_description"></localize></small>
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div class="umb-property-editor">
+												<input readonly class="span9 umb-editor-textstring" id="rootXPath" type="text" ng-model="ctrl.rootXPath" />
+												<umb-button ng-if="ctrl.rootXPath"
+															umb-clipboard
+															umb-clipboard-target="#rootXPath"
+															umb-clipboard-success="ctrl.copySuccess(ctrl.rootXPath)"
+															type="button"
+															label="Copy"
+															icon="icon-attachment">
+												</umb-button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label" for="siteXPath"><localize key="xpathfinder_findxpath_sitexpath"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_findxpath_sitexpath_description">xpathfinder_findxpath_sitexpath_description</localize></small>
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div class="umb-property-editor">
+												<input readonly class="span9 umb-editor-textstring" id="siteXPath" type="text" ng-model="ctrl.siteXPath" />
+												<umb-button ng-if="ctrl.siteXPath"
+															umb-clipboard
+															umb-clipboard-target="#siteXPath"
+															umb-clipboard-success="ctrl.copySuccess(ctrl.siteXPath)"
+															type="button"
+															label="Copy"
+															icon="icon-attachment">
+												</umb-button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label" for="specificXPath"><localize key="xpathfinder_findxpath_specificxpath"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_findxpath_specificxpath_description"></localize></small>
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div class="umb-property-editor">
+												<input readonly class="span9 umb-editor-textstring" id="specificXPath" type="text" ng-model="ctrl.specificXPath" />
+												<umb-button ng-if="ctrl.specificXPath"
+															umb-clipboard
+															umb-clipboard-target="#specificXPath"
+															umb-clipboard-success="ctrl.copySuccess(ctrl.specificXPath)"
+															type="button"
+															label="Copy"
+															icon="icon-attachment">
+												</umb-button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</ng-form>
+					</div>
+				</div>
+			</umb-box-content>
+		</umb-box>
+	</div>
+	<div>
+		<umb-box>
+			<umb-box-header title-key="xpathfinder_content_title" description-key="xpathfinder_content_description">
+			</umb-box-header>
+			<umb-box-content>
+				<div class="form-horizontal" ng-controller="xpathfinder.xpathcontroller as ctrl">
+					<div class="umb-property">
+						<ng-form name="propertyForm">
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label" for="xpath_expath"><localize key="xpathfinder_content_xpath"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_content_xpath_description"></localize></small>
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div class="umb-property-editor">
+												<input id="xpath_expath" class="span9 umb-editor-textstring" type="text" value="" localize="placeholder" placeholder="@xpathfinder_content_xpath_placeholder" ng-model="ctrl.xpath" />
+
+												<umb-button ng-if="ctrl.xpath"
+															type="button"
+															title="Search"
+															button-style="primary"
+															icon="icon-search"
+															label="Search"
+															action="ctrl.findContent()">
+												</umb-button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="control-group umb-control-group">
+								<div class="umb-el-wrap">
+									<div class="control-header">
+										<label class="control-label" for="specificXPath"><localize key="xpathfinder_content_content"></localize></label>
+										<small class="control-description"><localize key="xpathfinder_content_content_description"></localize></small>
+									</div>
+									<div class="controls">
+										<div class="umb-property-editor db">
+											<div class="umb-property-editor">
+												<umb-list-view-layout ng-if="ctrl.result"
+																	  items="ctrl.result"
+																	  options="ctrl.listViewOptions"
+																	  selection="[]"
+																	  entity-type="Document">
+												</umb-list-view-layout>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</ng-form>
+					</div>
+				</div>
+			</umb-box-content>
+		</umb-box>
+	</div>
+</div>

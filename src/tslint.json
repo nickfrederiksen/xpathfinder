@@ -1,0 +1,39 @@
+{
+	"defaultSeverity": "warn",
+	"extends": [
+		"tslint:recommended"
+	],
+	"jsRules": {},
+	"rules": {
+		"triple-equals": [
+			true,
+			"allow-null-check",
+			"allow-undefined-check"
+		],
+		"no-console": [
+			true,
+			"log"
+		],
+		"prefer-for-of": false,
+		"no-namespace": false,
+		"no-internal-module": false,
+		"indent": [
+			true,
+			"tabs",
+			4
+		],
+		"member-access": false,
+		"variable-name": [
+			true,
+			"ban-keywords",
+			"check-format",
+			"allow-leading-underscore"
+		],
+		"ordered-imports": false,
+		"member-ordering": false,
+		"object-literal-sort-keys": false,
+		"eofline": false,
+		"no-any":true
+	},
+	"rulesDirectory": []
+}
