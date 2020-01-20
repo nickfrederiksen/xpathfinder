@@ -36,6 +36,7 @@ steps:
     
 - task: CopyFiles@2
   inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/*.nupkg'
     TargetFolder: '$(build.artifactstagingdirectory)'
     CleanTargetFolder: true
