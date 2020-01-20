@@ -1,0 +1,10 @@
+﻿#xpathfinder {
+	display:flex;
+	> div {
+		width: 50%;
+
+		&:first-of-type {
+			margin-right: 14px;
+		}
+	}
+}
