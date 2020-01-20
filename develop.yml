@@ -19,16 +19,8 @@ steps:
     npm install
   displayName: 'npm install and build'
 
-- task: VersionNuspec@2
-  inputs:
-    Path: '$(Build.SourcesDirectory)'
-    Filename: '*.nuspec'
-    VersionNumber: '1.0.0.$(Build.BuildNumber)-beta'
-    InjectVersion: False
-    VersionRegex: '(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}'
-    OutputVersion: 'OutputedVersion'
-
 - task: NuGetCommand@2
   inputs:
-    command: pack
+    command: 'pack'
     packagesToPack: '**/*.nuspec'
+    versioningScheme: 'byBuildNumber'
