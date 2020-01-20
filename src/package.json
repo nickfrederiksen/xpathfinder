@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"postinstall": "npm rebuild node-sass & webpack --config webpack.config.js --progress --profile",
+		"postinstall": "npm rebuild node-sass & webpack --config webpack.release.config.js --progress --profile",
 		"build:dev": "webpack --config webpack.config.js --progress --profile",
 		"build:watch": "webpack --config webpack.config.js --progress --profile --watch",
 		"build:sw": "webpack --config webpack.config.js --watch",
