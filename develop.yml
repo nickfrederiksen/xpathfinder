@@ -39,4 +39,4 @@ steps:
     SourceFolder: '$(Build.StagingDirectory)'
     Contents: '**/*.nupkg'
     TargetFolder: '$(build.artifactstagingdirectory)'
-    CleanTargetFolder: true
+    OverWrite: true
