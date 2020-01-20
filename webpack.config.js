@@ -1,16 +1,16 @@
-const glob = require("glob");
+﻿const glob = require("glob");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const htmlLoader = require("html-loader");
 const tslintLoader = require("tslint-loader");
 
 
 module.exports = {
-	mode: 'production',
+	mode: 'development',
 	devtool: 'inline-source-map',
 	entry: {
-		'./../xpathfinder': glob.sync("./scripts/**/*.ts", {
+		'./../src/xpathfinder': glob.sync("./src/scripts/**/*.ts", {
 			ignore: ["./**/*.d.ts"]
-		}).concat(["./styles/style.scss"])
+		}).concat(["./src/styles/style.scss"])
 	},
 	output: {
 		filename: '[name].js',

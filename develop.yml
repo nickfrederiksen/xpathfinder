@@ -1,10 +1,14 @@
-# Node.js
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - develop
+
+variables:
+  Major: '1'
+  Minor: '0'
+  Patch: '0'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -15,20 +19,21 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-  displayName: 'npm install and build'
-
-- task: VersionNuspec@2
+- task: Npm@1
   inputs:
-    Path: '$(Build.SourcesDirectory)'
-    Filename: '*.nuspec'
-    VersionNumber: '1.0.0.$(Build.BuildNumber)-beta'
-    InjectVersion: False
-    VersionRegex: '(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])(\.(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])){3}'
-    OutputVersion: 'OutputedVersion'
+    command: 'install'
 
 - task: NuGetCommand@2
   inputs:
-    command: pack
+    command: 'pack'
     packagesToPack: '**/*.nuspec'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
