@@ -6,6 +6,11 @@
 trigger:
 - develop
 
+variables:
+  Major: '1'
+  Minor: '0'
+  Patch: '0'
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -23,4 +28,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.nuspec'
-    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
