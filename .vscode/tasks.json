@@ -17,6 +17,14 @@
 			"script": "build:watch",
 			"group": "build",
 			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"script": "build:release",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build:release",
+			"detail": "webpack --config webpack.release.config.js --progress --profile"
 		}
 	]
 }
